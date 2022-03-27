@@ -10,3 +10,43 @@ body {
     overflow: hidden;
     margin: 0;
 }
+
+/*this gives the properties to the counter*/
+/* giving the counter these properties centers it on the screen*/
+.counter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/*this phases the counter out after its completed it countdown which will lead to the replay button phasing back in*/
+.counter.hide {
+    transform: translate(-50%, -50%) scale(0);
+    animation: hide .2s ease-out;
+}
+
+@keyframes hide {
+    0%{
+        /*this is the default state*/
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100%{
+        /*this is the state of the hidden*/
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+/*this is the second phase properties it is not added to the one above because they will not be seen at the same time*/
+.final {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.final.show {
+    
+}
