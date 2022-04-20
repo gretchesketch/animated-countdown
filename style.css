@@ -11,6 +11,12 @@ body {
     margin: 0;
 }
 
+h4 {
+    font-size: 20px;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
 /*this gives the properties to the counter*/
 /* giving the counter these properties centers it on the screen*/
 .counter {
@@ -81,7 +87,48 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
+}
+
+.nums span.in {
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: goIn .5s ease-in-out;
+}
+
+.nums span.out {
+    animation: goIn .5s ease-in-out;
 }
 
 
+@keyframes goIn {
+    0% {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+
+    30% { /*going from 120 degrees to -20 degress gives the affect that the numbers are bouncing*/
+        transform: translate(-50%, -50%) rotate(-20deg)
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(10deg)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+}
+
+@keyframes goOut {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(20deg)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-120deg)
+    }
+}
