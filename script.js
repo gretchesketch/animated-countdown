@@ -20,8 +20,21 @@ function runAnimation() {
         // creating an event lister because we want to know when the event ends.
         //using num to represent the current number the event is effecting.
         // animationend is just lik click. its a built in event.
+        // triggering a function with an event parameter (e).
         num.addEventListener("animationend", (e) => {
-
+            //creating an if statment to check if the animation is equal to goIn
+            //and checkin gthe index to see if its not equal to nextToLast
+            if(e.animationName === "goIn" && index !== nextToLast) {
+                num.classList.remove("in")
+                num.classList.add("out")
+            // creating an else if statment to check if the current event is out and checking if there are siblings (spans, which there are. the spans are all considered equal)
+            // checking the siblings by useing a built in method called next element sibling
+            } else if (e.animationName === "goOut" && num.nextElementSibling) {
+                num.nextElementSibling.classList.add("in")
+            } else {
+                counter.classList.add("hide")
+                final.classList.add("show")
+            }
         })
     })
 }
